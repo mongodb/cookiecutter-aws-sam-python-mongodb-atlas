@@ -43,7 +43,12 @@ You'll be prompted a few questions to help this cookiecutter template to scaffol
 
 * We also recommend [mongocli](https://github.com/mongodb/mongocli) for the easiest way to manage all your MongoDB Atlas needs, cluster and apikeys included!
 
+You can then deploy your SAM app directly using your mongocli configuration - this will create the sam app, stack-name, and Atlas Project all with <APP_NAME>:
 
+```bash
+OVERRIDES=$(curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/export-mongocli-config.py | bash -s --  default parameter-override <APP_NAME>)
+sam deploy --guided --parameter-overrides ${OVERRIDES} --stack-name <APP_NAME>
+```
 ## Options
 
 Option | Description
