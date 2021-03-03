@@ -6,6 +6,19 @@ This is a [Cookiecutter](https://github.com/audreyr/cookiecutter) template to cr
 
 It is important to note that you should not try to `git clone` this project but use `SAM` CLI instead as ``{{cookiecutter.project_slug}}`` will be rendered based on your input and therefore all variables and files will be rendered properly.
 
+## tldr
+
+```bash
+curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
+sam init --location gh:jasonmimick/cookiecutter-mongodb-atlas-aws-sam-python
+# cd to your project
+```
+
+```bash
+sam build --use-container
+sam deploy --guided     # Have you apikey ready
+```
+
 ## Pre-requisite
 
 The project will deploy the MongoDB Atlas AWS Quick Start which provisions complete MongoDB Atlas deployments through CloudFormation using official MongoDB Atlas AWS CloudFormation Resource Types.
