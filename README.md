@@ -27,7 +27,7 @@ Option | Description
 To deploy your serverless app you will need to supply the following:
 
 Parameter  | Required | Description | Default
---------------------------- | ------------------------------
+-----------| - | --------------------------------- | ------------------------------
 PublicKey  | Y | Your MongoDB Cloud Public API Key | 
 PrivateKey | Y | Your MongoDB Cloud Private API Key |
 OrgId      | Y | Your MongoDB Cloud Organization Id | 

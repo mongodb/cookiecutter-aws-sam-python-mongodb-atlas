@@ -37,7 +37,7 @@ If you prefer to use an integrated development environment (IDE) to build and te
 To deploy your serverless app you will need to supply the following:
 
 Parameter  | Required | Description | Default
---------------------------- | ------------------------------
+-----------| - | --------------------------------- | ------------------------------
 PublicKey  | Y | Your MongoDB Cloud Public API Key | 
 PrivateKey | Y | Your MongoDB Cloud Private API Key |
 OrgId      | Y | Your MongoDB Cloud Organization Id | 
@@ -46,6 +46,7 @@ ClusterName | N | Name of the cluster as it appears in Atlas. Once the cluster i
 ClusterInstanceSize | N | Atlas Cluster Tier | `M10` 
 ClusterRegion | N | The AWS Region where the Atlas DB Cluster will run. (AWS Region format) | `us-east-1`
 ClusterMongoDBMajorVersion | N The version of MongoDB | `latest`
+
 
 Build and deploy your application for the first time by running the following commands in your shell:
 
