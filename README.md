@@ -10,7 +10,7 @@ It is important to note that you should not try to `git clone` this project but 
 
 The project will deploy the MongoDB Atlas AWS Quick Start which provisions complete MongoDB Atlas deployments through CloudFormation using official MongoDB Atlas AWS CloudFormation Resource Types.
 
-Until these resources a more easily available you can use the [get-start-aws](http://) project to bootstrap each AWS region with the Atlas CFN Resource Types:
+Until these resources a more easily available you can use the [get-start-aws](https://github.com/jasonmimick/get-started-aws) project to bootstrap each AWS region with the Atlas CFN Resource Types:
 
 ```bash
 curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
