@@ -1,7 +1,4 @@
 {
     "project_name": "Name of the project",
-    "include_safe_deployment": "n",
-    "mongodb_atlas_public_key": "publickey",
-    "mongodb_atlas_private_key": "privatekey",
-    "mongodb_atlas_org_id": "orgid"
+    "include_safe_deployment": "n"
 }
