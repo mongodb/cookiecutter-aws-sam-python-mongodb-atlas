@@ -1,8 +1,21 @@
 # Cookiecutter SAM for MongoDB Atlas with Python Lambda functions
 
+:warning: THIS is ALPHA SOFTWARE in active DEVELOPMENT use at own risk and not in production, yet. :warning:
 This is a [Cookiecutter](https://github.com/audreyr/cookiecutter) template to create a Serverless App based on Serverless Application Model (SAM) and Python 3.8 which uses MongoDB Atlas.
 
 It is important to note that you should not try to `git clone` this project but use `SAM` CLI instead as ``{{cookiecutter.project_slug}}`` will be rendered based on your input and therefore all variables and files will be rendered properly.
+
+## Pre-requisite
+
+The project will deploy the MongoDB Atlas AWS Quick Start which provisions complete MongoDB Atlas deployments through CloudFormation using official MongoDB Atlas AWS CloudFormation Resource Types.
+
+Until these resources a more easily available you can use the [get-start-aws](http://) project to bootstrap each AWS region with the Atlas CFN Resource Types:
+
+```bash
+curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
+```
+
+For example - passing in a docker image tag from the get-started-aws project and the AWS region to deploy into.
 
 ## Usage
 
@@ -16,17 +29,6 @@ You'll be prompted a few questions to help this cookiecutter template to scaffol
 
 * We also recommend [mongocli](https://github.com/mongodb/mongocli) for the easiest way to manage all your MongoDB Atlas needs, cluster and apikeys included!
 
-## Pre-requisite
-
-The project will deploy the MongoDB Atlas AWS Quick Start which provisions complete MongoDB Atlas deployments through CloudFormation using official MongoDB Atlas AWS CloudFormation Resource Types.
-
-Until these resources a more easily available you can use the [get-start-aws](http://) project to bootstrap each AWS region with the Atlas CFN Resource Types:
-
-```bash
-curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
-```
-
-For example - passing in a docker image tag from the get-started-aws project and the AWS region to deploy into.
 
 ## Options
 
