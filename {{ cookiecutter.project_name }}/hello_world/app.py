@@ -8,10 +8,11 @@ import os
 DB_URI = os.environ.get('MONGODB_URI')
 USERNAME = os.environ.get('MONGODB_USERNAME')
 PASSWORD = os.environ.get('MONGODB_PASSWORD')
+PROJECT_ID = os.environ.get('MONGODB_ATLAS_PROJECT_ID')
 
-print( DB_URI )
-print( USERNAME )
-print( PASSWORD )
+print( f"DB_URI={DB_URI}")
+print( f"USERNAME={USERNAME}")
+print( f"PROJECT_ID={PROJECT_ID}")
 client = pymongo.MongoClient( host=DB_URI,
                               username=USERNAME,
                               password=PASSWORD,
@@ -61,8 +62,9 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "MongoDB Rocks!",
+            "message": "MongoDB Rocks &#128640;!",
             "ip": ip_value,
-            "log": log
+            "log": log,
+            "mongodb_atlas": f"https://cloud.mongodb.com/v2/{PROJECT_ID}#clusters"
         }),
     }

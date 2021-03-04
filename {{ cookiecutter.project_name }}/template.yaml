@@ -96,6 +96,14 @@ Parameters:
     - "4.0"
     - "4.2"
     - "4.4"
+  DatabaseUserUsername:
+    Description: Database User Username
+    Type: String
+    Default: "get-started-aws-sam"
+  DatabaseUserPassword:
+    Description: Database User Password
+    Type: String
+    Default: "CZtUvvkMGSXXJBsW"
   DatabaseUserRoleDatabaseName:
     Description: Database User Role Database Name
     Type: String
@@ -131,8 +139,8 @@ Resources:
         PublicKey:  !Ref "PublicKey"
         PrivateKey: !Ref "PrivateKey"
       #Username: !GetAtt "AtlasIAMRole.Arn"
-      Username: "get-started-aws"
-      Password: "CZtUvvkMGSXXJBsW"
+      Username: !Ref "DatabaseUserUsername"
+      Password: !Ref "DatabaseUserPassword"
       #DatabaseName: "$external"
       DatabaseName: "admin"
       #AWSIAMType: "ROLE"
@@ -168,8 +176,9 @@ Resources:
       Environment:
         Variables:
           MONGODB_URI: !GetAtt "AtlasCluster.SrvAddress"
-          MONGODB_USERNAME: "get-started-aws"
-          MONGODB_PASSWORD: "CZtUvvkMGSXXJBsW"
+          MONGODB_USERNAME: !Ref "DatabaseUserUsername"
+          MONGODB_PASSWORD: !Ref "DatabaseUserPassword"
+          MONGODB_ATLAS_PROJECT_ID: !Ref: AtlasProject
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
