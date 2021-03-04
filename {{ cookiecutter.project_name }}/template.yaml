@@ -178,7 +178,7 @@ Resources:
           MONGODB_URI: !GetAtt "AtlasCluster.SrvAddress"
           MONGODB_USERNAME: !Ref "DatabaseUserUsername"
           MONGODB_PASSWORD: !Ref "DatabaseUserPassword"
-          MONGODB_ATLAS_PROJECT_ID: !Ref: AtlasProject
+          MONGODB_ATLAS_PROJECT_ID: !Ref "AtlasProject"
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
