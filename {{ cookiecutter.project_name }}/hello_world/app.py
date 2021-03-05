@@ -2,6 +2,7 @@ import json
 import pymongo
 import requests
 import os
+from jinja2 import Environment, FileSystemLoader
 
 # TODO - Update this for some default locally running MongoDB in docker
 # for sam local
@@ -9,6 +10,8 @@ DB_URI = os.environ.get('MONGODB_URI')
 USERNAME = os.environ.get('MONGODB_USERNAME')
 PASSWORD = os.environ.get('MONGODB_PASSWORD')
 PROJECT_ID = os.environ.get('MONGODB_ATLAS_PROJECT_ID')
+APP_NAME = os.environ.get('APP_NAME')
+CLUSTER_NAME = os.environ.get('MONGODB_ATLAS_CLUSTER_NAME')
 
 print( f"DB_URI={DB_URI}")
 print( f"USERNAME={USERNAME}")
@@ -53,7 +56,34 @@ def lambda_handler(event, context):
                 { "$inc" : { "counter" : 1 } },
                 upsert=True,
                 return_document=pymongo.collection.ReturnDocument.AFTER)
+
+
+
         print(f'Updated log entry: {log}')
+        print(f' ---> context:{context}')
+        print(f' ---> event: {event}')
+
+        atlas_project_href = f"https://cloud.mongodb.com/v2/{PROJECT_ID}#clusters"
+        accept_mime=event['headers']['Accept']
+        return_object = {
+            "message": "MongoDB Rocks!",
+            "ip": ip_value,
+            "log": log,
+            "mongodb_atlas": atlas_project_href
+        }
+        print(f' --> atlas_project_href={atlas_project_href} accept_mime={accept_mime}')
+
+        if 'text/html' in accept_mime:
+            content_type = 'text/html'
+            env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), "templates"), encoding="utf8"))
+            template = env.get_template("index.html")
+            content = template.render(project_id=PROJECT_ID,
+                                      app_name=APP_NAME,
+                                      cluster_name=CLUSTER_NAME,
+                                      log_object=return_object)
+        else:
+            content_type = 'application/json'
+            content = json.dumps(return_object)
     except Exception as e:
         # Send some context about this error to Lambda Logs
         print(e)
@@ -61,10 +91,6 @@ def lambda_handler(event, context):
 
     return {
         "statusCode": 200,
-        "body": json.dumps({
-            "message": "MongoDB Rocks &#128640;!",
-            "ip": ip_value,
-            "log": log,
-            "mongodb_atlas": f"https://cloud.mongodb.com/v2/{PROJECT_ID}#clusters"
-        }),
+        "body": content,
+        "headers": {"content-type" : content_type}
     }
