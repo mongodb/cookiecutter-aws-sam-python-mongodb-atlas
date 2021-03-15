@@ -16,10 +16,12 @@ CLUSTER_NAME = os.environ.get('MONGODB_ATLAS_CLUSTER_NAME')
 print( f"DB_URI={DB_URI}")
 print( f"USERNAME={USERNAME}")
 print( f"PROJECT_ID={PROJECT_ID}")
+print( f"APP_NAME={APP_NAME}")
+print( f"CLUSTER_NAME={CLUSTER_NAME}")
 client = pymongo.MongoClient( host=DB_URI,
                               username=USERNAME,
                               password=PASSWORD,
-                              appname='sam-app')
+                              appname=f"sam-app-project-id-{PROJECT_ID}")
 
 print( client )
 
