@@ -1,7 +1,7 @@
 {
     "project_name": "Name of the project",
     "include_safe_deployment": "n",
-    "_copy_without_render": {
+    "_copy_without_render": [
         "*.html"
-    }
+    ]
 }
