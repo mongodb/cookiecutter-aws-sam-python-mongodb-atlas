@@ -9,8 +9,8 @@ It is important to note that you should not try to `git clone` this project but 
 ## tldr
 
 ```bash
-curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
-sam init --location gh:jasonmimick/cookiecutter-mongodb-atlas-aws-sam-python
+curl https://raw.githubusercontent.com/mongodb-developer/get-started-aws-cfn/main/get-setup.sh | bash -s us-east-2
+sam init --location gh:mongodb/cookiecutter-mongodb-atlas-aws-sam-python
 # cd to your project
 ```
 
@@ -23,17 +23,18 @@ sam deploy --guided     # Have you apikey ready
 
 The project will deploy the MongoDB Atlas AWS Quick Start which provisions complete MongoDB Atlas deployments through CloudFormation using official MongoDB Atlas AWS CloudFormation Resource Types.
 
-Until these resources a more easily available you can use the [get-start-aws](https://github.com/jasonmimick/get-started-aws) project to bootstrap each AWS region with the Atlas CFN Resource Types:
+Until these resources a more easily available you can use the [get-started-aws-cfn](https://github.com/mongodb-developer/get-started-aws-cfn) project to bootstrap each AWS region with the Atlas CFN Resource Types:
 
 ```bash
-curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/get-setup.sh | bash -s -- jmimick/atlas-aws us-east-2
+curl https://raw.githubusercontent.com/mongodb-developer/get-started-aws-cfn/main/get-setup.sh | bash -s us-west-2
 ```
 
-For example - passing in a docker image tag from the get-started-aws project and the AWS region to deploy into.
+The above command will deploy and seutp the MongoDB Atlas CFN resources into the `us-west-2` region. 
+For advanced use, including sample AWS IAM policy suitable for `aws sts assume-role`, see: the [aws-iam-permissions](https://github.com/mongodb-developer/get-started-aws-cfn#aws-iam-permissions) note in the Get-Started project.
 
 ## Usage
 
-Generate a new SAM based Serverless App: `sam init --location gh:jasonmimick/cookiecutter-mongodb-atlas-aws-sam-python`
+Generate a new SAM based Serverless App: `sam init --location gh:mongodb/cookiecutter-mongodb-atlas-aws-sam-python`
 
 You'll be prompted a few questions to help this cookiecutter template to scaffold this project and after its completed you should see a new folder at your current path with the name of the project you gave as input.
 
@@ -46,7 +47,7 @@ You'll be prompted a few questions to help this cookiecutter template to scaffol
 You can then deploy your SAM app directly using your mongocli configuration - this will create the sam app, stack-name, and Atlas Project all with <APP_NAME>:
 
 ```bash
-OVERRIDES=$(curl https://raw.githubusercontent.com/jasonmimick/get-started-aws/main/export-mongocli-config.py | bash -s --  default parameter-override <APP_NAME>)
+OVERRIDES=$(curl https://raw.githubusercontent.com/monogdb-developer/get-started-aws-cfn/main/export-mongocli-config.py | bash -s --  default parameter-override <APP_NAME>)
 sam deploy --guided --parameter-overrides ${OVERRIDES} --stack-name <APP_NAME>
 ```
 ## Options
