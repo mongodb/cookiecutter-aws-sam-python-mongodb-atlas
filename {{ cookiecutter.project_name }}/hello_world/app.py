@@ -78,7 +78,7 @@ def lambda_handler(event, context):
             env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), "templates"), encoding="utf8"))
             template = env.get_template("index.html")
             content = template.render(project_id=PROJECT_ID,
-                                      app_name=APP_NAME,
+                                      project_name=APP_NAME,
                                       cluster_name=CLUSTER_NAME,
                                       log_object=return_object)
         else:

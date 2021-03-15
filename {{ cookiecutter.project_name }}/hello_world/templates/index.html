@@ -21,7 +21,7 @@
         <br/>
 
         <p>
-        Login to Atlas now and view cluster: <a href="https://cloud.mongodb.com/v2/{{project_id}}#clusters">{{cluster_name}}</a>
+        Login to Atlas now and view cluster: <a href="https://cloud.mongodb.com/v2/{{project_id|default("project_id",true)}}#clusters">{{cluster_name|default("Cluster Name",true)}}</a>
 
         <p>
         TODO// <a href="">View Data in your cluster</a>
