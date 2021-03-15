@@ -8,7 +8,7 @@
     </head>
         <title>MongoDB Atlas AWS SAM Lambda Sample App</title>
     <body style="margin:auto, max-width:50%">
-        <h1>MongoDB Atlas AWS Lambda Sample App `{{project_name}}`</h1>
+        <h1>MongoDB Atlas AWS Lambda Sample App `{{ project_name|default("Project_Name",true) }}`</h1>
 
         <p><em>Welcome to your new app powered by AWS Lambda and MongoDB Atlas. This app comes pre-wired
             with a connection to your MongoDB Atlas Database cluster.!</em> 
