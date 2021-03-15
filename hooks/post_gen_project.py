@@ -12,8 +12,11 @@ def main():
     project_name = '{{ cookiecutter.project_name }}'
 
     print(SUCCESS +
-          "Your MonogDB Atlas AWS Lambda Project initialized successfully! You can now jump to {} folder".
-          format(project_name) + TERMINATOR)
+          "Your MongoDB Atlas AWS Lambda Project initialized successfully! You can now jump to the {} folder.".
+          format(project_name) + "\n" +
+          "\t    View all your deployments at: https://cloud.mongodb.com"
+          + TERMINATOR)
+    print(TERMINATOR)
     print(INFO +
           "{}/README.md contains instructions on how to proceed.".
           format(project_name) + TERMINATOR)

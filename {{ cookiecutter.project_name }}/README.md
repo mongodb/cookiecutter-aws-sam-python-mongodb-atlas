@@ -1,5 +1,11 @@
 # {{ cookiecutter.project_name }}
 
+This project is a clone of the project: https://github.com/aws/aws-sam-cli-app-templates/tree/master/python3.8/cookiecutter-aws-sam-hello-python superchared with
+a MongoDB Atlas deployment!
+
+See [https://github.com/mongodb-developer/get-started-aws-cfn](https://github.com/mongodb-developer/get-started-aws-cfn) to Get Started, or if you know what you're doing
+you can create a new SAM python project from this template.
+
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes [Lambda Powertools for operational best practices](https://github.com/awslabs/aws-lambda-powertools-python), and the following files and folders.
 
 This project will deploy a complete MongoDB Atlas deployment including a new cluster for your python lambda function to connect and write date. There is example code in the hello_world folder to get you started.
