@@ -36,6 +36,8 @@ Parameters:
     Description: Atlas provides different cluster tiers, each with a default storage capacity and RAM size. The cluster you select is used for all the data-bearing hosts in your cluster tier. See https://docs.atlas.mongodb.com/reference/amazon-aws/#amazon-aws.
     Type: String
     AllowedValues:
+    - "M2"
+    - "M5"
     - "M10"
     - "M20"
     - "M30"

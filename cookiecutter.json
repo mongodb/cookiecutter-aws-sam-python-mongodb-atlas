@@ -1,6 +1,6 @@
 {
     "project_name": "Name of the project",
-    "include_safe_deployment": "n",
+    "runtime": "python3.8",
     "_copy_without_render": [
         "*.html"
     ]
