@@ -33,7 +33,7 @@ if export_mode in ["sam-deploy","parameter-overrides"]:
     if len(sys.argv)>3:
         project_name = sys.argv[3]
     else:
-        project_name = "mongodb-atlas-project"
+        project_name = "atlas-sam-app"
     print( f"ParameterKey=PublicKey,ParameterValue={d['public_api_key']} ParameterKey=PrivateKey,ParameterValue={d['private_api_key']} ParameterKey=OrgId,ParameterValue={d['org_id']} ParameterKey=ProjectName,ParameterValue={project_name}" )
 
 if export_mode == "kubectl-create-secret":
