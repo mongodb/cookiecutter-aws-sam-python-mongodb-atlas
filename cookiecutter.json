@@ -1,6 +1,6 @@
 {
     "project_name": "atlas-sam-app",
-    "runtime": "python3.8",
+    "runtime": "python3.7",
     "_copy_without_render": [
         "*.html"
     ]

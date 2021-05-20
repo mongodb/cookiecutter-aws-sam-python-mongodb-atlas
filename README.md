@@ -16,7 +16,8 @@ sam init --location gh:mongodb/cookiecutter-mongodb-atlas-aws-sam-python
 
 ```bash
 sam build --use-container
-sam deploy --guided     # Have you apikey ready
+sam deploy --extra-parameters $(./export-mongocli-parameters.sh)
+# sam deploy --guided     # Have you apikey ready
 ```
 
 ## Pre-requisite

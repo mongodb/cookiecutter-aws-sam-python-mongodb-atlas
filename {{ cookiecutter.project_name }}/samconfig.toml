@@ -1,0 +1,3 @@
+ version=0.1
+ [default.global.parameters]
+ stack_name = "atlas-sam-app"
