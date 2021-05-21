@@ -1,40 +1,49 @@
 <!DOCTYPE html>
     <head>
     <link rel="stylesheet" type="text/css" href="https://cloud.mongodb.com/static/dist/bootstrap.min.css?_ds=cfd45fa7830f540015b86a339dd9b3b8dcc2025e">
- 
     <link rel="stylesheet" type="text/css" href="https://cloud.mongodb.com/static/dist/legacy.min.css?_ds=cfd45fa7830f540015b86a339dd9b3b8dcc2025e">
-
     <link rel="stylesheet" type="text/css" href="https://cloud.mongodb.com/static/assets/css/thirdparty.min.css?_ds=cfd45fa7830f540015b86a339dd9b3b8dcc2025e">
-    </head>
+    <style>
+    body {
+        font-family: Barlow, Arial;
+        font-size: 14pt;    
+        
+    }
+    </style>
         <title>MongoDB Atlas AWS SAM Lambda Sample App</title>
-    <body style="margin:auto, max-width:50%">
-        <h1>MongoDB Atlas AWS Lambda Sample App `{{project_name}}`</h1>
+    </head>
+    <body>
+        <div style="background-color: #21313C; padding: 15px; border: 1px solid #116149;color: #FAFBFC">
 
-        <p>Welcome to your new app powered by AWS Lambda and MongoDB Atlas!</p>
-        
-        <p>This app comes pre-wired with your MongoDB Atlas Database cluster already setup and connected.<p> 
-        
+        <h1>MongoDB Atlas AWS Lambda Sample App `snunk-demo-1`</h1>
+        </div>
+
+        <div style="background-color: #13AA52 ; padding: 10px; border: 1px solid #116149;">
+        <h2>Welcome to your new app powered by AWS Lambda and MongoDB Atlas!
+        </h2>
+        </div>
+        <br/>        
         <p>
-        Login to Atlas now and view cluster: <a href="https://cloud.mongodb.com/v2/{{project_id}}#clusters">{{cluster_name}}</a>
-
+        <a href="https://cloud.mongodb.com/v2/{{project_id}}#clusters">
+            <img alt="Icon-Atlas" src="data:image/png;base64,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">
+            Login to Atlas: {{cluster_name}} </a>
+        </div>
         <p>
-        TODO// <a href="">View Data in your cluster</a>
 
-        <br/>
+        <div style="text-align: left">
+        <a href="https://cloud.mongodb.com/v2/{{project_id}}#metrics/replicaSet/{{cluster_id}}/explorer">
+            <img alt="Icon-DataExplorer" src="data:image/png;base64,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">
+        Use the MongoDB Atlas DataExplorer to view and manage all your data.
+        </a> 
+        </div>
 
+        <br/><br/><br/>
+        <div style="background-color: #B3BBC1; padding: 10px; border: 1px solid #21313C; font-size:10pt">
         <p>
         <a href="https://www.mongodb.com/cloud/atlas?utm_campaign=cloudformation&utm_source=aws&utm_medium=atlas_quickstart_sam">MongoDB Atlas</a> 
               is the leading global cloud document database service for modern applications. Deploy fully managed MongoDB with best-in-class automation and proven practices that guarantee availability, scalability, and compliance with security standards. Extend your data with the <a
               href="https://www.mongodb.com/cloud?utm_campaign=cloudformation&utm_source=aws&utm_medium=atlas_quickstart_sam">MongoDB Cloud platform</a>, including full-text search, mobile sync, and automated data tiering.
-        <br/>
-
-        <br/>
-
-        <div width="300" height="300">
-
-            <a href="https://cloud.mongodb.com/v2/{{project_id}}#clusters/" data-testid="org-nav-leaf" class="leafygreen-ui-cssveg"><svg fill="#21313C" viewBox="0 0 216.56 448.5" class="leafygreen-ui-1yq22vy"><title>MongoDB LogoMark</title><path fill="#10aa50" d="M202.8,179.68c-23-101.47-71-128.49-83.18-147.59C113,21.7,106.25,5.91,106.25,5.91c-.66,9-1.83,14.7-9.51,21.54C81.36,41.16,16,94.42,10.51,209.72c-5.12,107.5,79,173.8,90.18,180.65,8.54,4.2,19,.08,24-3.77,40.54-27.84,96-102.07,78.06-206.92"></path><path fill="#b8c4c2" d="M109.73,333.11c-2.11,26.62-3.63,42.11-9,57.29,0,0,3.54,25.33,6,52.17l8.77,0a488.62,488.62,0,0,1,9.57-56.2C113.71,380.8,110.16,356.46,109.73,333.11Z"></path><path fill="#12924f" d="M125.06,386.39h0c-11.48-5.3-14.8-30.13-15.31-53.28A1090.8,1090.8,0,0,0,112.2,218.4c-.6-20.07.3-185.92-4.94-210.2,2.12,4.75,7.24,15.91,12.36,23.88,12.23,19.11,60.19,46.13,83.17,147.61C220.7,284.27,165.57,358.37,125.06,386.39Z"></path></svg></a>
         </div>
     </body>
-
 </html>
 

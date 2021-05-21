@@ -181,6 +181,7 @@ Resources:
           MONGODB_USERNAME: !Ref "DatabaseUserUsername"
           MONGODB_PASSWORD: !Ref "DatabaseUserPassword"
           MONGODB_ATLAS_PROJECT_ID: !Ref "AtlasProject"
+          MONGODB_ATLAS_CLUSTER_ID: !Ref "AtlasCluster"
           MONGODB_ATLAS_CLUSTER_NAME: !Ref "ClusterName"
           APP_NAME: !Ref "ProjectName"
       Events:
