@@ -1,6 +1,7 @@
 import json
 import pymongo
 import requests
+from requests.auth import HTTPDigestAuth
 import os
 from jinja2 import Environment, FileSystemLoader
 
@@ -12,14 +13,12 @@ PASSWORD = os.environ.get('MONGODB_PASSWORD')
 PROJECT_ID = os.environ.get('MONGODB_ATLAS_PROJECT_ID')
 APP_NAME = os.environ.get('APP_NAME')
 CLUSTER_NAME = os.environ.get('MONGODB_ATLAS_CLUSTER_NAME')
-CLUSTER_ID = os.environ.get('MONGODB_ATLAS_CLUSTER_ID')
 
 print( f"DB_URI={DB_URI}")
 print( f"USERNAME={USERNAME}")
 print( f"PROJECT_ID={PROJECT_ID}")
 print( f"APP_NAME={APP_NAME}")
 print( f"CLUSTER_NAME={CLUSTER_NAME}")
-print( f"CLUSTER_ID={CLUSTER_ID}")
 client = pymongo.MongoClient( host=DB_URI,
                               username=USERNAME,
                               password=PASSWORD,
@@ -27,6 +26,17 @@ client = pymongo.MongoClient( host=DB_URI,
 
 print( client )
 
+
+baseurl = "https://cloud.mongodb.com/api/atlas/v1.0/groups"
+url=f"{baseurl}/{PROJECT_ID}/clusters/{CLUSTER_NAME}"
+print(f" ------ id: {PROJECT_ID}  --- url:{url}")
+cluster = requests.get(url, auth=HTTPDigestAuth(
+    os.environ["MONGODB_ATLAS_PUBLIC_KEY"],
+    os.environ["MONGODB_ATLAS_PRIVATE_KEY"]))
+
+# TODO// error handle here for failed cluster api call
+CLUSTER_ID = cluster.json()['id']
+print( f" ~ ~ ~ dyno lookup found CLUSTER_ID={CLUSTER_ID}")
 
 def lambda_handler(event, context):
     """Sample pure Lambda function
